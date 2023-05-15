@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 90%;
+  margin: 1em auto;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.recent-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 85%;
+}
+
+.header-recent-scores {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  border: 3px #272727 solid;
+}
+
+.individual-scores {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.4em 0.5em;
+}
+
+.individual-scores:nth-child(odd) {
+  background-color: rgba(213, 213, 213, 0.536);
+}
