@@ -8,11 +8,10 @@ const nameScore = document.querySelector('#nameScore');
 const scoreValue = document.querySelector('#scoreValue');
 
 const error = document.createElement('h4');
-error.textContent = "Error Trying to connect API";
+error.textContent = 'Error Trying to connect API';
 error.style.color = 'red';
 
-const errorContainer = document.querySelector('.error')
-
+const errorContainer = document.querySelector('.error');
 
 const fetchScores = async () => {
   try {
@@ -21,35 +20,35 @@ const fetchScores = async () => {
     ScoreList(data.result, containerList);
   } catch {
     alert('Error trying to connect with the API');
-    errorContainer.appendChild(error)
+    errorContainer.appendChild(error);
   }
-}
+};
 
 fetchScores();
 
 const postScore = async (name, score) => {
   try {
     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/basketball/scores/', {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         user: name,
-        score: score
+        score,
       }),
     });
     const result = await response.json();
 
-    if(result){
+    if (result) {
       fetchScores();
     }
   } catch {
     alert('Error trying to add a score to the API');
     error.textContent = 'Error trying to add a score to the API';
-    errorContainer.appendChild(error)
+    errorContainer.appendChild(error);
   }
-}
+};
 
 formAddScore.addEventListener('submit', (e) => {
   e.preventDefault();
