@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Bungee&display=swap);
+
 *,
 *::before,
 *::after {
@@ -6,9 +8,14 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Bungee', cursive;
+}
+
 header {
   width: 90%;
   margin: 1em auto;
+  font-size: 1em;
 }
 
 main {
@@ -23,6 +30,23 @@ main {
   flex-direction: column;
   gap: 1em;
   width: 85%;
+}
+
+.button {
+  background-color: #ffb34f;
+  height: 3.5em;
+  width: 6em;
+  font-family: 'Bungee', cursive;
+  cursor: pointer;
+  border-radius: 4px;
+  color: rgb(0, 35, 80);
+  border: 2px solid #945a0d;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  background-color: #e9a348;
+  transform: scale(1.1);
 }
 
 .header-recent-scores {
@@ -43,8 +67,12 @@ main {
   padding: 0.4em 0.5em;
 }
 
+.title {
+  font-size: 1em;
+}
+
 .individual-scores:nth-child(odd) {
-  background-color: rgba(213, 213, 213, 0.536);
+  background-color: rgb(220, 220, 220);
 }
 
 .add-score {
