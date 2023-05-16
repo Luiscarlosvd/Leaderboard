@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Bungee&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap);
 
 *,
 *::before,
@@ -9,13 +9,17 @@
 }
 
 body {
-  font-family: 'Bungee', cursive;
+  font-family: 'Black Ops One', cursive;
+}
+
+h2 {
+  font-size: 1.5em;
 }
 
 header {
   width: 90%;
   margin: 1em auto;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 main {
@@ -32,11 +36,15 @@ main {
   width: 85%;
 }
 
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
 .button {
   background-color: #ffb34f;
   height: 3.5em;
   width: 6em;
-  font-family: 'Bungee', cursive;
+  font-family: 'Black Ops One', cursive;
   cursor: pointer;
   border-radius: 4px;
   color: rgb(0, 35, 80);
@@ -52,6 +60,7 @@ main {
 .header-recent-scores {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .scores {
@@ -87,12 +96,27 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 form input {
-  width: 15em;
-  padding: 0.4em;
+  width: 18em;
+  padding: 0.2em;
+  background-color: #e9cba456;
+  border: 2px solid #e9a348;
+  border-radius: 3px;
+  padding: 1em;
+  outline-color: #e9a348;
+  transition: all 0.3s;
+}
+
+form input[type="text"] {
+  font-family: 'Black Ops One', cursive;
+  font-size: 0.8em;
+}
+
+form input:focus {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
