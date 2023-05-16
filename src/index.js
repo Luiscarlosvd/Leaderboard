@@ -12,17 +12,16 @@ error.textContent = "Error Trying to connect API";
 error.style.color = 'red';
 
 const errorContainer = document.querySelector('.error')
-error.appendChild(errorContainer);
+
 
 const fetchScores = async () => {
   try {
     const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/basketball/scores/');
     const data = await response.json();
-    console.log(data);
-
     ScoreList(data.result, containerList);
   } catch {
     alert('Error trying to connect with the API');
+    errorContainer.appendChild(error)
   }
 }
 
@@ -41,9 +40,14 @@ const postScore = async (name, score) => {
       }),
     });
     const result = await response.json();
-    console.log(result);
+
+    if(result){
+      fetchScores();
+    }
   } catch {
     alert('Error trying to add a score to the API');
+    error.textContent = 'Error trying to add a score to the API';
+    errorContainer.appendChild(error)
   }
 }
 
@@ -56,3 +60,7 @@ formAddScore.addEventListener('submit', (e) => {
   nameScore.value = '';
   scoreValue.value = '';
 });
+
+const refresh = document.querySelector('#refresh');
+
+refresh.addEventListener('click', fetchScores);

@@ -1,7 +1,4 @@
 const displayScores = (arrayScores, container) => {
-    if (localStorage.getItem('localData') === null) {
-        localStorage.setItem('localData', JSON.stringify([]));
-    }
     container.innerHTML = '';
     arrayScores.forEach((score) => {
         container.innerHTML += 
