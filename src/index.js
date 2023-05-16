@@ -2,22 +2,57 @@ import './style.css';
 import ScoreList from './modules/scores.js';
 
 const containerList = document.querySelector('.scores-container');
-const scoresList = new ScoreList(containerList);
-
-scoresList.displayScores();
 
 const formAddScore = document.querySelector('#addScore');
 const nameScore = document.querySelector('#nameScore');
 const scoreValue = document.querySelector('#scoreValue');
 
+const error = document.createElement('h4');
+error.textContent = "Error Trying to connect API";
+error.style.color = 'red';
+
+const errorContainer = document.querySelector('.error')
+error.appendChild(errorContainer);
+
+const fetchScores = async () => {
+  try {
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/basketball/scores/');
+    const data = await response.json();
+    console.log(data);
+
+    ScoreList(data.result, containerList);
+  } catch {
+    alert('Error trying to connect with the API');
+  }
+}
+
+fetchScores();
+
+const postScore = async (name, score) => {
+  try {
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/basketball/scores/', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: name,
+        score: score
+      }),
+    });
+    const result = await response.json();
+    console.log(result);
+  } catch {
+    alert('Error trying to add a score to the API');
+  }
+}
+
 formAddScore.addEventListener('submit', (e) => {
   e.preventDefault();
-  const scoreItem = {
-    name: nameScore.value,
-    score: scoreValue.value,
-  };
-  scoresList.addScore(scoreItem);
-  scoresList.displayScores();
+  const name = nameScore.value;
+  const score = scoreValue.value;
+  postScore(name, score);
+  fetchScores();
   nameScore.value = '';
   scoreValue.value = '';
 });

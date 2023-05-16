@@ -1,28 +1,17 @@
-export default class scoreList {
-  constructor(container) {
-    this.container = container;
-    this.scores = [];
-  }
-
-  addScore(score) {
-    this.scores.push(score);
-    localStorage.setItem('localData', JSON.stringify(this.scores));
-  }
-
-  displayScores() {
+const displayScores = (arrayScores, container) => {
     if (localStorage.getItem('localData') === null) {
-      localStorage.setItem('localData', JSON.stringify([]));
+        localStorage.setItem('localData', JSON.stringify([]));
     }
-    this.scores = JSON.parse(localStorage.getItem('localData'));
-    this.container.innerHTML = '';
-    this.scores.forEach((score) => {
-      this.container.innerHTML
-            += `
+    container.innerHTML = '';
+    arrayScores.forEach((score) => {
+        container.innerHTML += 
+            `
             <li class="individual-scores">
-                <h3 class="title" >${score.name}</h3>
+                <h3 class="title" >${score.user}</h3>
                 <p>${score.score}</p> 
             </li>
             `;
     });
-  }
 }
+
+export default displayScores;
