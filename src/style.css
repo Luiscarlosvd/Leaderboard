@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap);
+
 *,
 *::before,
 *::after {
@@ -6,9 +8,28 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Black Ops One', cursive;
+  background-image: url(./background-basket.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-style: italic;
+  text-shadow: 2px 3.5px #625c558a;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-shadow: 1.5px 2px #625c5568;
+}
+
 header {
   width: 90%;
   margin: 1em auto;
+  font-size: 1.1em;
 }
 
 main {
@@ -25,15 +46,37 @@ main {
   width: 85%;
 }
 
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.15) 5.4px 3.4px 3.2px;
+}
+
+.button {
+  background-color: #ffb34fc0;
+  height: 3.5em;
+  width: 6em;
+  font-family: 'Black Ops One', cursive;
+  cursor: pointer;
+  border-radius: 4px;
+  color: rgb(0, 35, 80);
+  border: 2px solid #945a0d;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  background-color: #e9a348;
+  transform: scale(1.1);
+}
+
 .header-recent-scores {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .scores {
   display: flex;
   flex-direction: column;
-  border: 3px #272727 solid;
+  border-radius: 3px;
 }
 
 .individual-scores {
@@ -41,10 +84,14 @@ main {
   align-items: center;
   gap: 0.7em;
   padding: 0.4em 0.5em;
+  border: 2px #352c2162 solid;
+  background-color: #fea63298;
+  border-radius: 5px;
+  margin-top: 6px;
 }
 
-.individual-scores:nth-child(odd) {
-  background-color: rgba(213, 213, 213, 0.536);
+.title {
+  font-size: 1em;
 }
 
 .add-score {
@@ -59,12 +106,27 @@ main {
 form {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  padding-bottom: 3em;
 }
 
 form input {
-  width: 15em;
-  padding: 0.4em;
+  width: 18em;
+  padding: 1em;
+  background-color: #f6dbb94d;
+  border: 2px solid #e9a348;
+  border-radius: 3px;
+  outline-color: #e9a348;
+  transition: all 0.3s;
+}
+
+form input[type="text"] {
+  font-family: 'Black Ops One', cursive;
+  font-size: 0.8em;
+}
+
+form input:focus {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -73,6 +135,10 @@ form input {
     gap: 2em;
     width: 80%;
     margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 3em;
   }
 
   .recent-scores {
