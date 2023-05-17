@@ -104,10 +104,10 @@ Install this project with:
 
 ### Usage
 
-To run the project, execute the following command:
+To run the project on the webpack dev server, execute the following command:
 
 ```sh
-  npm run dev
+  npm start
 ```
 
 ### Run tests
