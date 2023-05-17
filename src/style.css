@@ -13,16 +13,17 @@ body {
   background-image: url(./background-basket.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
   font-style: italic;
-  font-size: 3em;
   text-shadow: 2px 3.5px #625c558a;
 }
 
 h2 {
   font-size: 1.5em;
+  text-shadow: 1.5px 2px #625c5568;
 }
 
 header {
@@ -83,8 +84,8 @@ main {
   align-items: center;
   gap: 0.7em;
   padding: 0.4em 0.5em;
-  border-bottom: 2px #cacaca96 solid;
-  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(236,236,236,1) 100%);
+  border: 2px #352c2162 solid;
+  background-color: #fea63298;
   border-radius: 5px;
   margin-top: 6px;
 }
@@ -106,15 +107,15 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 3em;
 }
 
 form input {
   width: 18em;
-  padding: 0.2em;
+  padding: 1em;
   background-color: #f6dbb94d;
   border: 2px solid #e9a348;
   border-radius: 3px;
-  padding: 1em;
   outline-color: #e9a348;
   transition: all 0.3s;
 }
@@ -134,6 +135,10 @@ form input:focus {
     gap: 2em;
     width: 80%;
     margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 3em;
   }
 
   .recent-scores {
